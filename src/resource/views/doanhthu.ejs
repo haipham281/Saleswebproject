@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Tables - SB Admin</title>
+    <link href="qlisanpham.css" rel="stylesheet" />
+    <link rel="stylesheet" href="doanhthu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="logo">
+    <nav class="container">
+        <div class="logo1">
+            <a class="navbar-brand" href="#"><img src="../img/logo-z.png" alt=""></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 ml-2"
+            id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        </div>
+        
+        <!-- Navbar-->
+        <div class="logo2"><a class="dropdown-item" href="logout">Logout <i class="fas fa-power-off"></i></a></div>
+    </nav>
+
+
+
+    <div id="layoutSidenav" class="content">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="doanhthu">
+                                    Doanh Thu
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link " href="admin">
+                                    Quản lí sản phẩm
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="quanlytaikhoan">
+                                    Quản lí người dùng
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a class="nav-link" href="quanlydonhang">
+                                    Quản lí đơn hàng
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="quanlykho">
+                                    Quản lí kho
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as: Admin</div> 
+                </div>
+            </nav>
+        </div>
+
+
+        <div id="layoutSidenav_content">
+            <div class="container-fluid">
+                <h1 class="mt-4">Doanh Thu</h1>
+                <ol class="breadcrumb mb-4" style="margin-left: 20px;">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary text-white mb-4" style="width: 250px; ">
+                            <div class="card-body">Tổng đơn</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <h5 id="tongdon"></h5>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-warning text-white mb-4" style="width: 250px;">
+                            <div class="card-body">Thu nhập</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                               <h5 id="thunhap"></h5>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                         <div class="card bg-success text-white mb-4" style="width: 250px;">
+                             <div class="card-body">Đơn thành công</div>
+                                 <div class="card-footer d-flex align-items-center justify-content-between">
+                                 <h5 id="donthanhcong"></h5>
+                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-xl-3 col-md-6">
+                         <div class="card bg-danger text-white mb-4" style="width: 250px;">
+                             <div class="card-body">Đơn huỷ</div>
+                             <div class="card-footer d-flex align-items-center justify-content-between">
+                                <h5 id="donhuy"></h5>
+                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                             </div>
+                         </div>
+                     </div>
+                </div>  
+                <label for="option">Xem doanh thu theo </label><br>
+
+                <div id="option">
+                    <input type="radio" id="day" name="option"value="day" onchange="selectOption(this)" >
+                    <label for="day">Ngày</label><br>
+                    <input type="radio" id="month" name="option" value="month" onchange="selectOption(this)">
+                    <label for="month">Tháng</label><br>
+
+                </div>
+
+
+                <div class="date ml-3 mt-3">
+                    <input type="date" id="selectday"  style="display:none">
+                </div>
+
+                <div class="col-6 mt-3" style="margin-left: 20px;">
+                    <!-- <input class="form-control" type="text" id="trangthai"> -->
+                    <select class="form-control" id="selectmonth" style="display:none">
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div> 
+                <a onclick="doanhthu()" class="btn btn-outline-danger mt-3" style="text-decoration: none;" >Xem</a>
+
+            </div>
+            
+        </div>
+        
+       <!-- Button trigger modal -->
+        
+
+       <!-- Modal -->
+    </div>
+      
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+   crossorigin="anonymous"></script>
+<script src="doanhthu.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="../assets/demo/chart-area-demo.js"></script>
+<script src="../assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<!-- <script src="../assets/demo/datatables-demo.js"></script> -->
+
+</html>

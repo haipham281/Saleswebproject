@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Tables - SB Admin</title>
+    <link href="qlidonhang.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="logo">
+    <nav class="container">
+        <div class="logo1">
+            <a class="navbar-brand" href="#"><img src="logo-z.png" alt=""></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 ml-2"
+            id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        </div>
+        
+        <!-- Navbar-->
+        <div class="logo2"><a class="dropdown-item" href="logout">Logout <i class="fas fa-power-off"></i></a></div>
+    </nav>
+
+
+
+
+    <div id="layoutSidenav" class="content">
+        <div id="layoutSidenav_nav" class="content-left">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="doanhthu">
+                                    Doanh Thu
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link " href="admin">
+                                    Quản lí sản phẩm
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="quanlytaikhoan">
+                                    Quản lí người dùng
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a class="nav-link" href="quanlydonhang">
+                                    Quản lí đơn hàng
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="quanlykho">
+                                    Quản lí kho
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>   
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as: Admin</div> 
+                </div> 
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content" class="content-right">
+
+            <div class="product">
+                <div class="title-btn">
+                    <div class="title">Quản lý Đơn hàng</div>
+                </div>
+               
+                <table class="table ">
+                    <thead class="thead-light text-center">
+                        <tr>
+                            <th>ID đơn</th>
+                            <th>ID sản phẩm</th>
+                            <th>Size</th>
+
+                            <th>Số lượng</th>
+                            <th>Tổng tiền</th>
+
+                            <th>Khách hàng</th>
+                            <th>Điện thoại</th>
+                            <th>Loại khách hàng</th>
+
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Trạng thái</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center" id="donhang">
+
+                            <%  var tempar=[] %>
+                            <% result.forEach(function(item){ %>
+                            <%     if(!tempar.includes(item.id_donhang)){  %>
+                            <%        tempar.push(item.id_donhang); %>
+                            <%    }})    %>
+ 
+ 
+ 
+                            <%for (var i=0;i<result.length;i++) { %>  
+                            
+                            
+                            <tr>
+
+                            <th><%=result[i].id_donhang%></th>
+
+                            <th><%=result[i].id_sanpham%></th>
+                            <th><%=result[i].size%></th>
+
+                            <th><%=result[i].so_luong%></th>
+                            <th><%=result[i].gia_tien%></th>
+
+                            <th><%=result[i].ten_khachhang%></th>
+                            <th><%=result[i].sdt%></th>
+                            <th><%=result[i].type_khachhang%></th>
+
+                            <th><%=result[i].email_khachhang%></th>
+                            <th><%=result[i].dia_chi%></th>
+                            <th><%=result[i].trang_thai%></th>
+
+                            <td><button onclick="updatedonhang('<%=result[i].id_donhang%>','<%=result[i].id_sanpham%>','<%=result[i].size%>','<%=result[i].ten_khachhang%>','<%=result[i].sdt%>','<%=result[i].email_khachhang%>','<%=result[i].dia_chi%>')" class="btn btn-outline-danger"  data-toggle="modal" data-target="#updateProduct"><i class="fas fa-cogs"></i></button>
+                                </td>
+                            </tr>
+                            <%}%>
+                        
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="modal fade" id="updateProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-6 mt-3">
+                            <label for="">ID đơn</label>
+                            <input class="form-control" type="text" id="id-don" readonly>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label for="">ID sản phẩm</label>
+                            <input class="form-control" type="text" id="id-sanpham" readonly>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label for="">Size</label>
+                            <input class="form-control" type="text" id="sizec" readonly>
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label for="">Tên khách hàng</label>
+                            <input class="form-control" type="text" id="don-user">
+                        </div>
+                        
+                       
+                        <div class="col-6 mt-3">
+                            <label for="">Điện thoại</label>
+                            <input class="form-control" type="text" id="don-phone">
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label for="">Email</label>
+                            <input class="form-control" type="text" id="don-email">
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label for="">Địa chỉ</label>
+                            <input class="form-control" type="text" id="don-address">
+                        </div>
+                        <div class="col-6 mt-3">
+                            <label for="">Trạng thái</label>
+                            <!-- <input class="form-control" type="text" id="trangthai"> -->
+                            <select class="form-control"  id="trangthai">
+                                <option value="Đang xử lí">Đang xử lí</option>
+                                <option value="Đang giao hàng">Đang giao hàng</option>
+                                <option value="Giao thành công">Giao thành công</option>
+
+                                <option value="Đã hủy">Đã hủy</option>
+                            </select>
+                        </div>
+                        <div class="col-12"  id="Update"></div>    
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitupdate()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+<script src="scripts.js"></script>
+<script src="product.js"></script>
+<script src="user.js"></script>
+<script src="admin.js"></script>
+<script src="donhang.js"></script>
+<script src="admin-user.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<!-- <script src="assets/demo/datatables-demo.js"></script> -->
+
+</html>    

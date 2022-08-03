@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
+    <title>Products</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+<header>
+    <a href="/">
+        <div class="logo"><img src="logo-z.png" alt=""></div>
+    </a>
+    <div class="menu-top">
+        <ul>
+            <li><a href="/" title="HOMEPAGE">HOMEPAGE</a></li>
+            <li><a href="shirt" title="SHIRTS">SHIRTS</a></li>
+            <li><a href="bottom" title="BOTTOMS">BOTTOMS</a></li>
+            <li><a href="jacket" title="JACKETS">JACKETS</a></li>
+            <li><a href="shoes" title="SHOES">SHOES</a></li>
+            <li><a href="accessories" title="ACCESSORIES">ACCESSORIES</a></li>
+        </ul>
+    </div>
+    <div class="mr-3 cart">
+        <a href="login" >
+            <i class="fas fa-user"></i>
+        </a>
+
+
+        <a class="ml-3 mr-3" href="cart">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+
+    </div>
+    
+    <div class="form-inline search">
+        <input type="text" class="form-control" placeholder="Search..">
+        <button type="submit" class="form-control btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</header>
+
+
+<div class="container-fluid mt-5 mb-5">
+    <div class="container product">
+        <div class="h3 mb-5">SHOES</div>
+        <div class="row" id="banchay">
+            <% const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'VND',
+                minimumFractionDigits: 0
+              })%>
+            
+
+            <% for(var data=0;data< result.length;data++){ %>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3">
+                <div class="card product p-2" styte="width:auto"> 
+                <a ><img  class="proo card-img-top" data-id="<%=result[data].id_sanpham %>" data-name="<%=result[data].ten_sanpham %>" data-img="<%=result[data].img_sanpham %>" 
+                            data-price="<%=result[data].gia_ban %>" src="<%=result[data].img_sanpham %>" data-color="<%=result[data].mau_sac %>" data-sp_daban = "<%=result[data].soluongdaban %>" 
+                            data-sl_danhgia="<%=result[data].sl_danhgia%>" data-danh_gia="<%=result[data].danh_gia %>" 
+                            data-mota="<%=result[data].mo_ta%>" data-size="<%=result[data].size%>" data-tinhtrangsize="<%=result[data].tinhtrangsize%>"  class="img_sanpham"  alt="..."></a>
+
+
+                <div class="card-title product-title text-center h5" ><a style = "text-decoration: none; color: black" href="#"  class="proo" data-id="<%=result[data].id_sanpham %>" data-name="<%=result[data].ten_sanpham %>" data-img="<%=result[data].img_sanpham %>" data-price="<%=result[data].gia_ban %>"><%=result[data].ten_sanpham %></a></div>
+                <div class="price text-center h6"><%=formatter.format(result[data].gia_ban);%></div>
+                <!-- <span class="text-center add-to-cart add-cart btn btn-outline-warning"data-id="<%=result[data].id_sanpham %>" data-name="<%=result[data].ten_sanpham %>" data-img="<%=result[data].img_sanpham %>" data-price="<%=result[data].gia_ban%>"> -->
+                <a>
+                <!-- <i class="fas fa-cart-plus"></i> -->
+                </a>
+                </span>
+               </div>
+            </div>
+            <%  } %>  
+
+
+
+        </div>
+    </div>
+
+</div>
+<div class="k">
+    <a href="#"><span>&#171;</span> Previous</a>
+    <a style="background-color: #888888;" href="#">1</a>
+    <a href="shoes">2</a>
+    <a href="shoe2">Next <span>&#187</span></a>
+</div>
+<div class="line"></div>
+
+
+
+
+
+
+    <div class="container-fluid">
+
+        <!-- --thongtin-- -->
+        <div class="container info">
+
+            <div class="row mt-5 mb-5">
+                <div class="col-3 info-col">
+                    <div class="h6">
+                        GỌI MUA HÀNG(8:30 - 17:00)
+                    </div>
+                    <a href="tel:0869996886">
+
+                        <i class="fas fa-phone-alt"></i>
+                        086 999 6886
+                    </a>
+
+                    <div class="info-foot">Tất cả các ngày trong tuần</div>
+                </div>
+                <div class="col-3 info-col">
+                    <div class="h6">GỌI MUA HÀNG(8:30 - 17:00) </div>
+
+                    <a href="tel:0869996886">
+                        <i class="fas fa-phone-alt"></i>
+                        086 999 6886
+                    </a>
+
+                    <div class="info-foot">Tất cả các ngày trong tuần</div>
+                </div>
+
+                <div class="col-3">
+                    <div class="h6">ĐĂNG KÍ NHẬN THÔNG TIN MỚI</div>
+                    <form action="" class="form-inline">
+                        <input type="text" class="form-control" style="width: 60%;">
+                        <a href="" class=" btn btn-outline-dark">Đăng kí</a>
+                    </form>
+                </div>
+                <div class="col-3 info-social">
+                    <div class="h6">THEO DÕI CHÚNG TÔI</div>
+                    <div class="row">
+                        <div class="col-3">
+                            <a href="">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a href="">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                        <div class="col-3">
+                            <a href="">
+                                <i class="fab fa-twitter"></i>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ---- -->
+        <!-- --footer-- -->
+        <div class="container-fluid footer-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 link-support">
+                        <div class="h6">HỖ TRỢ KHÁCH HÀNG</div>
+                        <ul>
+                            <li>
+                                <a href="">Hướng dẫn mua hàng</a>
+                            </li>
+                            <li>
+                                <a href="">Chính sách đổi/trả</a>
+                            </li>
+                            <li>
+                                <a href="">Hình thức thanh toán</a>
+                            </li>
+                            <li>
+                                <a href="">Chính sách giao hàng</a>
+                            </li>
+                            <li>
+                                <a href="">Thông tin bảo mật</a>
+                            </li>
+                            <li>
+                                <a href="">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 link-support">
+                        <div class="h6">HỆ THỐNG CỬA HÀNG</div>
+                        <ul>
+                            <li>
+                                Zero Shop
+                            </li>
+                            <li class="text">
+                                Địa chỉ: Chung Cư Đông Hải, Tô Ký, Tân Chánh Hiệp, Quận 12  
+                            </li>
+                            <li>
+                                Phone : 086 999 6886
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 link-support">
+                        <div class="h6">VỀ CHÚNG TÔI</div>
+                        <div class="text">Với hơn 20 cửa hàng trải dài cả nước, Germe hy vọng sẽ mang đến sự phục vụ chu
+                            đáo cho tất
+                            cả các khách hàng. Hệ thống cửa hàng thời trang Germe luôn luôn lắng nghe những ý kiến đóng
+                            góp từ các khách hàng với mục tiêu đẩy mạnh dịch vụ, mở rộng hệ thống và làm hài lòng những
+                            vị khách đến trên toàn quốc.</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="h6">FANPAGE CHÚNG TÔI</div>
+                        <div class="fb-page" data-href="https://www.facebook.com/nam.nef.401/" data-tabs="timeline"
+                            data-width="360" data-height="200" data-small-header="false"
+                            data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/nam.nef.401/" class="fb-xfbml-parse-ignore"><a
+                                    href="https://www.facebook.com/nam.nef.401/">Germe +</a></blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ---- -->
+    </div>
+
+</body>
+<script src="product.js"></script>
+<script src="product2.js"></script>
+<script src="control.js"></script>
+</html>

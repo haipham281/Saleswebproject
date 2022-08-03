@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0"></script>
+    <title>Products</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="tongdonhang.css">
+</head>
+<body>
+<header>
+    <a href="/">
+        <div class="logo"><img src="logo-z.png" alt=""></div>
+    </a>
+    <div class="menu-top">
+        <ul>
+            <li><a href="/" title="HOMEPAGE">HOMEPAGE</a></li>
+            <li><a href="shirt" title="SHIRTS">SHIRTS</a></li>
+            <li><a href="bottom" title="BOTTOMS">BOTTOMS</a></li>
+            <li><a href="jacket" title="JACKETS">JACKETS</a></li>
+            <li><a href="shoe" title="SHOES">SHOES</a></li>
+            <li><a href="accesories" title="ACCESSORIES">ACCESSORIES</a></li>
+        </ul>
+    </div>
+    <div class="mr-3 cart">
+        <a href="login">
+            <i class="fas fa-user"></i>
+        </a>
+
+
+        <a class="ml-3 mr-3" href="cart">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+
+    </div>
+    
+    <div class="form-inline search">
+        <input type="text" class="form-control" placeholder="Search..">
+        <button type="submit" class="form-control btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</header>
+    <!-------------------->
+    <div id="layoutSidenav_content">
+        <div class="product">
+            <div class="title-btn">
+                <div class="title">Quản lý đơn hàng</div>
+            </div>
+            <table class="table ">
+                <thead class="thead-light text-center">
+                    <tr>
+                        <th>ID đơn hàng</th>
+                        <th>Khách hàng</th>
+                        <th>Điện thoại</th>
+                        <th>Address</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày đặt hàng</th>
+
+
+                    </tr>
+                </thead>
+
+                
+                <tbody class="text-center" id="donhang">
+
+                    <% for(var x=0;x< result.length;x++){ %>
+                        
+
+                        <tr>
+                            <th><%=result[x].id_donhang%></th>
+
+                            <th><%=result[x].ten_khachhang%></th>
+                            <th><%=result[x].sdt %></th>
+                            <th><%=result[x].dia_chi%></th>
+                            <th><%= result[x].ten_sanpham %></th>   
+                            <th><%= result[x].so_luong %></th>
+                            <th><%= result[x].gia_tien %></th>
+
+                            <th><%= result[x].trang_thai %></th>
+                            <th><%=result[x].ngay_dathang %></th>
+                        </tr>
+                        <%}%>
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+
+    <!-------------------->
+
+
+<div class="container-fluid">
+
+    <!-- --thongtin-- -->
+    <div class="container info">
+
+        <div class="row mt-5 mb-5">
+            <div class="col-3 info-col">
+                <div class="h6">
+                    GỌI MUA HÀNG(8:30 - 17:00)
+                </div>
+                <a href="tel:0869996886">
+
+                    <i class="fas fa-phone-alt"></i>
+                    086 999 6886
+                </a>
+
+                <div class="info-foot">Tất cả các ngày trong tuần</div>
+            </div>
+            <div class="col-3 info-col">
+                <div class="h6">GỌI MUA HÀNG(8:30 - 17:00) </div>
+
+                <a href="tel:0869996886">
+                    <i class="fas fa-phone-alt"></i>
+                    086 999 6886
+                </a>
+
+                <div class="info-foot">Tất cả các ngày trong tuần</div>
+            </div>
+
+            <div class="col-3">
+                <div class="h6">ĐĂNG KÍ NHẬN THÔNG TIN MỚI</div>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control" style="width: 60%;">
+                    <a href="" class=" btn btn-outline-dark">Đăng kí</a>
+                </form>
+            </div>
+            <div class="col-3 info-social">
+                <div class="h6">THEO DÕI CHÚNG TÔI</div>
+                <div class="row">
+                    <div class="col-3">
+                        <a href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ---- -->
+    <!-- --footer-- -->
+    <div class="container-fluid footer-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 link-support">
+                    <div class="h6">HỖ TRỢ KHÁCH HÀNG</div>
+                    <ul>
+                        <li>
+                            <a href="">Hướng dẫn mua hàng</a>
+                        </li>
+                        <li>
+                            <a href="">Chính sách đổi/trả</a>
+                        </li>
+                        <li>
+                            <a href="">Hình thức thanh toán</a>
+                        </li>
+                        <li>
+                            <a href="">Chính sách giao hàng</a>
+                        </li>
+                        <li>
+                            <a href="">Thông tin bảo mật</a>
+                        </li>
+                        <li>
+                            <a href="">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 link-support">
+                    <div class="h6">HỆ THỐNG CỬA HÀNG</div>
+                    <ul>
+                        <li>
+                            Zero Shop
+                        </li>
+                        <li class="text">
+                            Địa chỉ: Chung Cư Đông Hải, Tô Ký, Tân Chánh Hiệp, Quận 12  
+                        </li>
+                        <li>
+                            Phone : 086 999 6886
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3 link-support">
+                    <div class="h6">VỀ CHÚNG TÔI</div>
+                    <div class="text">Với hơn 20 cửa hàng trải dài cả nước, Germe hy vọng sẽ mang đến sự phục vụ chu
+                        đáo cho tất
+                        cả các khách hàng. Hệ thống cửa hàng thời trang Germe luôn luôn lắng nghe những ý kiến đóng
+                        góp từ các khách hàng với mục tiêu đẩy mạnh dịch vụ, mở rộng hệ thống và làm hài lòng những
+                        vị khách đến trên toàn quốc.</div>
+                </div>
+                <div class="col-3">
+                    <div class="h6">FANPAGE CHÚNG TÔI</div>
+                    <div class="fb-page" data-href="https://www.facebook.com/nam.nef.401/" data-tabs="timeline"
+                        data-width="360" data-height="200" data-small-header="false"
+                        data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/nam.nef.401/" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/nam.nef.401/">Germe +</a></blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ---- -->
+</div>
+
+</body>
+<script src="scripts.js"></script>
+
+</html>
